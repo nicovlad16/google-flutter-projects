@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'Please input a number to see if it is square or cube.',
             ),
             TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              inputFormatters: <FilteringTextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 hintText: hintText,
