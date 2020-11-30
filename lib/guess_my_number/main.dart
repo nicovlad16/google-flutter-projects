@@ -96,9 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: <Widget>[
                     const Text('Try a number!'),
                     TextFormField(
-                      inputFormatters: <FilteringTextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ],
+                      inputFormatters: <FilteringTextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintText: hintText,
