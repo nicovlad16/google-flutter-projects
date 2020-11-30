@@ -123,8 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               _showMyDialog();
                             } else if (number < randomNumber)
                               guess = 'You tried $number.\nTry higher.';
-                            else if (number > randomNumber)
-                              guess = 'You tried $number.\nTry lower.';
+                            else if (number > randomNumber) guess = 'You tried $number.\nTry lower.';
                           }
                         });
                       },
