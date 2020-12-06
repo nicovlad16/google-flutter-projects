@@ -31,8 +31,10 @@ class _MyHomePageState extends State<MyHomePage> {
   final int _gridSize = 3;
   List<List<int>> board;
 
-  bool gameRefreshed = false;
+  bool endGame = false;
   bool firstPlayer;
+  int firstPlayerTile = 1;
+  int secondPlayerTile = -1;
 
   int lastTile;
   int countMoves;
@@ -41,18 +43,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    if (!gameRefreshed) {
+    if (!endGame) {
       super.initState();
     }
 
     board = List<List<int>>.generate(_gridSize, (_) => List<int>.generate(_gridSize, (_) => 0));
 
     firstPlayer = true;
+    endGame = false;
 
     lastTile = null;
     countMoves = 0;
 
-    message = null;
+    message = "Player 1's turn";
   }
 
   int _line(int index) {
@@ -68,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   bool _isFirstPlayerTile(int index) {
-    return board[_line(index)][_column(index)] == 1;
+    return board[_line(index)][_column(index)] == firstPlayerTile;
   }
 
   bool _isGameWon() {
@@ -178,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
     print(board);
 
     setState(() {
-      board[_line(tile)][_column(tile)] = firstPlayer ? 1 : -1;
+      board[_line(tile)][_column(tile)] = firstPlayer ? firstPlayerTile : secondPlayerTile;
     });
 
     lastTile = tile;
@@ -187,16 +190,23 @@ class _MyHomePageState extends State<MyHomePage> {
     if (_isDraw()) {
       setState(() {
         message = 'Draw!';
+        endGame = true;
       });
     }
 
     if (_isGameWon()) {
       setState(() {
         message = firstPlayer ? 'Player 1 wins!' : 'Player 2 wins!';
+        endGame = true;
       });
     }
 
-    firstPlayer = !firstPlayer;
+    if (!endGame) {
+      setState(() {
+        firstPlayer = !firstPlayer;
+        message = firstPlayer ? "Player 1's turn" : "Player 2's turn";
+      });
+    }
   }
 
   @override
@@ -216,7 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   crossAxisCount: _gridSize, mainAxisSpacing: 8.0, crossAxisSpacing: 8.0, childAspectRatio: 1.0),
               itemBuilder: (BuildContext context, int index) {
                 return RaisedButton(
-                  onPressed: !_isEmptyTile(index) || _isDraw() || message != null
+                  onPressed: endGame || !_isEmptyTile(index)
                       ? () {}
                       : () {
                           _playTurn(index);
@@ -238,15 +248,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: const EdgeInsets.only(bottom: 8.0),
                       child: Text(message, style: Theme.of(context).textTheme.headline4),
                     ),
-                  RaisedButton(
-                    onPressed: () {
-                      setState(() {
-                        gameRefreshed = true;
-                        initState();
-                      });
-                    },
-                    child: const Text('Play Again'),
-                  )
+                  if (endGame)
+                    RaisedButton(
+                      onPressed: () {
+                        setState(() {
+                          initState();
+                        });
+                      },
+                      child: const Text('Play Again'),
+                    )
                 ],
               ),
             ),
