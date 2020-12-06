@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
       final int line = _line(lastTile);
       final int column = _column(lastTile);
 
-      final int expectedSum = firstPlayer ? _gridSize : -_gridSize;
+      final int expectedSum = firstPlayer ? _gridSize * firstPlayerTile : _gridSize * secondPlayerTile;
 
       if (_computeLineSum(line) == expectedSum) {
         isGameWon = true;
