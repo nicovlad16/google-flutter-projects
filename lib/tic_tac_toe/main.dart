@@ -221,7 +221,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       : () {
                           _playTurn(index);
                         },
-                  color: _isEmptyTile(index) ? Colors.grey[300] : (_isFirstPlayerTile(index) ? Colors.yellow : Colors.black),
+                  color: _isEmptyTile(index)
+                      ? Colors.grey[300]
+                      : (_isFirstPlayerTile(index) ? Colors.yellow : Colors.black),
                 );
               },
             ),
