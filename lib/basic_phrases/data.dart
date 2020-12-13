@@ -1,4 +1,3 @@
-
 String romanianAudio = 'assets/audio/romanian.mp3';
 String chineseAudio = 'assets/audio/chinese.mp3';
 String englishAudio = 'assets/audio/english.mp3';
@@ -19,8 +18,7 @@ List<AudioTranslation> audioTranslationsList = <AudioTranslation>[
 ];
 
 class AudioTranslation {
-  AudioTranslation(
-      this.text, this.romanianAudio, this.translationAudio, this.language);
+  AudioTranslation(this.text, this.romanianAudio, this.translationAudio, this.language);
 
   final String text;
   final String romanianAudio;

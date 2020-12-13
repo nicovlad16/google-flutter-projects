@@ -25,7 +25,6 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -40,10 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> _init() async {
-      countries = await getCountries();
-      setState(() {
-        // countriesList
-      });
+    countries = await getCountries();
+    setState(() {
+      // countriesList
+    });
   }
 
   @override

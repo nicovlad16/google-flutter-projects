@@ -1,8 +1,7 @@
 import 'package:http/http.dart';
 
 Future<List<Country>> getCountries() async {
-  final Response response =
-      await get('https://www.worldometers.info/geography/flags-of-the-world/');
+  final Response response = await get('https://www.worldometers.info/geography/flags-of-the-world/');
 
   final String data = response.body;
 
@@ -19,7 +18,6 @@ Future<List<Country>> getCountries() async {
   }
   return countries;
 }
-
 
 class Country {
   Country(this.name, this.image);

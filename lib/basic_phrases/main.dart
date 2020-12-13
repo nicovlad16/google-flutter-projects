@@ -57,10 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         itemCount: audioTranslations.length * 2,
         padding: const EdgeInsets.all(16.0),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 8.0,
-            crossAxisSpacing: 8.0,
-            childAspectRatio: 1.0),
+            crossAxisCount: 2, mainAxisSpacing: 8.0, crossAxisSpacing: 8.0, childAspectRatio: 1.0),
         itemBuilder: (BuildContext context, int index) {
           return RaisedButton(
             onPressed: () {
@@ -72,10 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(
               _isFirstColumn(index)
                   ? _getItem(index).text
-                  : _getItem(index).text +
-                      ' (' +
-                      _getItem(index).language +
-                      ')',
+                  : _getItem(index).text + ' (' + _getItem(index).language + ')',
               style: const TextStyle(color: Colors.white),
             ),
           );
