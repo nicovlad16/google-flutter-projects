@@ -1,4 +1,4 @@
-import 'movies/main.dart' as app;
+import 'country-flags/main.dart' as app;
 
 void main() {
   app.main();
