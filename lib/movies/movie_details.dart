@@ -49,7 +49,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                 allowHalfRating: true,
                 itemCount: 10,
                 itemPadding: const EdgeInsets.symmetric(horizontal: 16.0),
-                itemBuilder: (BuildContext context, _) => const Icon(Icons.star),
+                itemBuilder: (BuildContext context, int _) => const Icon(Icons.star),
                 onRatingUpdate: (double value) {},
               ),
             ],
