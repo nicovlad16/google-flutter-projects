@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       // countriesList
     });
+    print(countries);
   }
 
   @override
@@ -61,15 +62,16 @@ class _MyHomePageState extends State<MyHomePage> {
           childAspectRatio: 1.0,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            width: 50.0,
-            height: 50.0,
-            child: Column(
-              children: <Widget>[
-                Image.network(countries[index].image),
-                Text(countries[index].name),
-              ],
-            ),
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Image.network(
+                countries[index].image,
+                height: 80,
+              ),
+              Text(countries[index].name),
+            ],
           );
         },
       ),

@@ -10,7 +10,8 @@ Future<List<Country>> getCountries() async {
   final List<String> parts = data.split('<a href="/img/flags').skip(1).toList();
   for (final String part in parts) {
     final String name = part.split('10px">')[1].split('<')[0];
-    final String image = part.substring(0, part.indexOf('"'));
+    String image = part.substring(0, part.indexOf('"'));
+    image = 'https://www.worldometers.info/img/flags' + image;
 
     final Country country = Country(name, image);
 
