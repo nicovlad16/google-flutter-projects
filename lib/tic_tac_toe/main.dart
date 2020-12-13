@@ -238,28 +238,27 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
-          if (message != null)
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Column(
-                children: <Widget>[
-                  if (message != null)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: Text(message, style: Theme.of(context).textTheme.headline4),
-                    ),
-                  if (endGame)
-                    RaisedButton(
-                      onPressed: () {
-                        setState(() {
-                          initState();
-                        });
-                      },
-                      child: const Text('Play Again'),
-                    )
-                ],
-              ),
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Column(
+              children: <Widget>[
+                if (message != null)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Text(message, style: Theme.of(context).textTheme.headline4),
+                  ),
+                if (endGame)
+                  RaisedButton(
+                    onPressed: () {
+                      setState(() {
+                        initState();
+                      });
+                    },
+                    child: const Text('Play Again'),
+                  )
+              ],
             ),
+          ),
         ],
       ),
     );
