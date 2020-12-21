@@ -1,5 +1,5 @@
-import 'package:projects/movies-redux/actions/get_movies.dart';
-import 'package:projects/movies-redux/models/app_state.dart';
+import 'package:projects/movies_redux/actions/get_movies.dart';
+import 'package:projects/movies_redux/models/app_state.dart';
 
 AppState reducer(AppState state, dynamic action) {
   if (action is GetMoviesSuccessful) {

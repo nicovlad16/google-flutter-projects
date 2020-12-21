@@ -1,4 +1,4 @@
-import 'package:projects/movies-redux/models/movie.dart';
+import 'package:projects/movies_redux/models/movie.dart';
 
 class GetMovies {
   const GetMovies();

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projects/movies-redux/containers/movie_container.dart';
-import 'package:projects/movies-redux/models/movie.dart';
+import 'package:projects/movies_redux/containers/movie_container.dart';
+import 'package:projects/movies_redux/models/movie.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key, this.title}) : super(key: key);

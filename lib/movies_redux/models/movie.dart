@@ -2,7 +2,7 @@ library movie;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:projects/movies-redux/models/serializers.dart';
+import 'package:projects/movies_redux/models/serializers.dart';
 
 part 'movie.g.dart';
 

@@ -2,7 +2,7 @@ library app_state;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
-import 'package:projects/movies-redux/models/movie.dart';
+import 'package:projects/movies_redux/models/movie.dart';
 
 part 'app_state.g.dart';
 

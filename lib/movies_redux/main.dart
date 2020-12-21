@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
-import 'package:projects/movies-redux/actions/get_movies.dart';
-import 'package:projects/movies-redux/data/movies_api.dart';
-import 'package:projects/movies-redux/middleware/app_middleware.dart';
-import 'package:projects/movies-redux/models/app_state.dart';
-import 'package:projects/movies-redux/presentation/home_page.dart';
-import 'package:projects/movies-redux/reducer/reducer.dart';
+import 'package:projects/movies_redux/actions/get_movies.dart';
+import 'package:projects/movies_redux/data/movies_api.dart';
+import 'package:projects/movies_redux/middleware/app_middleware.dart';
+import 'package:projects/movies_redux/models/app_state.dart';
+import 'package:projects/movies_redux/presentation/home_page.dart';
+import 'package:projects/movies_redux/reducer/reducer.dart';
 import 'package:redux/redux.dart';
 
 void main() {
