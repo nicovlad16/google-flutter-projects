@@ -12,19 +12,31 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.1
+  cupertino_icons: 1.0.0
 
   http: ^0.12.2
 
-  pedantic: any
+  pedantic: ^1.9.2
 
   assets_audio_player: ^2.0.13
 
   flutter_rating_bar: ^3.2.0+1
 
+  built_value: ^7.1.0
+  built_collection: ^4.3.2
+
+  redux: ^4.0.0+3
+  flutter_redux: ^0.7.0
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  build_runner: any
+  built_value_generator: ^7.1.0
+
 
 flutter:
   uses-material-design: true
