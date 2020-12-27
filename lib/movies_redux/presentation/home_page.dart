@@ -19,7 +19,6 @@ class HomePage extends StatelessWidget {
 
   final String title;
 
-
   @override
   Widget build(BuildContext context) {
     return IsLoadingContainer(
