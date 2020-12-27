@@ -12,7 +12,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
       builder
         ..isLoading = false
         ..page = 1
-        ..orderBy = "desc";
+        ..orderBy = 'desc';
     });
   }
 
