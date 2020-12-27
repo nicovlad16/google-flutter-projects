@@ -25,4 +25,6 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   @nullable
   String get quality;
+
+  BuiltList<String> genres;
 }

@@ -35,30 +35,30 @@ class HomePage extends StatelessWidget {
 
                   return Column(
                     children: <Widget>[
-                      // QualityContainer(
-                      //   builder: (BuildContext context, String quality) {
-                      //     return DropdownButton<String>(
-                      //       items: <String>['all', '720p', '1080p', '2160p', '3D'].map(
-                      //         (String value) {
-                      //           return DropdownMenuItem<String>(
-                      //             value: value,
-                      //             child: Text(value),
-                      //           );
-                      //         },
-                      //       ).toList(),
-                      //       onChanged: (String value) {
-                      //         StoreProvider.of<AppState>(context)
-                      //           ..dispatch(SetQuality(quality))
-                      //           ..dispatch(const GetMovies.start(1));
-                      //       },
-                      //     );
-                      //   },
-                      // ),
+                      QualityContainer(
+                        builder: (BuildContext context, String quality) {
+                          return DropdownButton<String>(
+                            hint: const Text('All'),
+                            items: <String>['All', '720p', '1080p', '2160p', '3D'].map(
+                              (String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              },
+                            ).toList(),
+                            onChanged: (String value) {
+                              StoreProvider.of<AppState>(context)
+                                ..dispatch(SetQuality(value))
+                                ..dispatch(const GetMovies.start(1));
+                            },
+                          );
+                        },
+                      ),
                       Expanded(
                         child: GridView.builder(
                           itemCount: movies.length,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 3,
                           ),
                           itemBuilder: (BuildContext context, int index) {
@@ -72,8 +72,7 @@ class HomePage extends StatelessWidget {
                       RaisedButton(
                         child: const Text('load more'),
                         onPressed: () {
-                          final Store<AppState> store =
-                              StoreProvider.of<AppState>(context);
+                          final Store<AppState> store = StoreProvider.of<AppState>(context);
                           store.dispatch(GetMovies.start(store.state.page));
                         },
                       ),

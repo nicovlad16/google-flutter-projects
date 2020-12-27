@@ -7,6 +7,9 @@ AppState reducer(AppState state, dynamic action) {
 
   if (action is GetMoviesStart) {
     builder.isLoading = true;
+    if (action.page == 1) {
+      builder.movies.clear();
+    }
   } else if (action is GetMoviesSuccessful) {
     builder
       ..movies.addAll(action.movies)
@@ -15,9 +18,7 @@ AppState reducer(AppState state, dynamic action) {
   } else if (action is GetMoviesError) {
     builder.isLoading = false;
   } else if (action is SetQuality) {
-    builder
-      ..quality = action.quality
-      ..page = 1;
+    builder.quality = action.quality;
   }
 
   return builder.build();

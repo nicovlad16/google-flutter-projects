@@ -12,12 +12,13 @@ class MoviesApi {
 
   final Client _client;
 
-  Future<List<Movie>> getMovies(int page, String quality) async {
+  Future<List<Movie>> getMovies(int page, String quality, List<String> genres) async {
     final Uri url = Uri.parse('https://yts.mx/api/v2/list_movies.json').replace(
       queryParameters: <String, String>{
-        'limit': '48',
+        'limit': '3',
         'page': '$page',
         if (quality != null) 'quality': quality,
+        if (genres.isNotEmpty) 'genre': genres[0],
       },
     );
 

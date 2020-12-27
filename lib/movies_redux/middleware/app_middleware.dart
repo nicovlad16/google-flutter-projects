@@ -18,8 +18,7 @@ class AppMiddleware {
     ];
   }
 
-  Future<void> _getMoviesMiddleware(
-      Store<AppState> store, dynamic action, NextDispatcher next) async {
+  Future<void> _getMoviesMiddleware(Store<AppState> store, dynamic action, NextDispatcher next) async {
     next(action);
 
     if (action is! GetMoviesStart) {
@@ -29,7 +28,8 @@ class AppMiddleware {
     try {
       final GetMoviesStart startAction = action as GetMoviesStart;
 
-      final List<Movie> movies = await _moviesApi.getMovies(startAction.page, store.state.quality);
+      final List<Movie> movies =
+          await _moviesApi.getMovies(startAction.page, store.state.quality, store.state.genres.asList());
 
       final GetMoviesSuccessful successful = GetMovies.successful(movies);
       store.dispatch(successful);
