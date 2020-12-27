@@ -15,11 +15,21 @@ class _$AppState extends AppState {
   final int page;
   @override
   final String quality;
+  @override
+  final BuiltList<String> genres;
+  @override
+  final String orderBy;
 
   factory _$AppState([void Function(AppStateBuilder) updates]) =>
       (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.movies, this.isLoading, this.page, this.quality})
+  _$AppState._(
+      {this.movies,
+      this.isLoading,
+      this.page,
+      this.quality,
+      this.genres,
+      this.orderBy})
       : super._() {
     if (movies == null) {
       throw new BuiltValueNullFieldError('AppState', 'movies');
@@ -29,6 +39,12 @@ class _$AppState extends AppState {
     }
     if (page == null) {
       throw new BuiltValueNullFieldError('AppState', 'page');
+    }
+    if (genres == null) {
+      throw new BuiltValueNullFieldError('AppState', 'genres');
+    }
+    if (orderBy == null) {
+      throw new BuiltValueNullFieldError('AppState', 'orderBy');
     }
   }
 
@@ -46,14 +62,21 @@ class _$AppState extends AppState {
         movies == other.movies &&
         isLoading == other.isLoading &&
         page == other.page &&
-        quality == other.quality;
+        quality == other.quality &&
+        genres == other.genres &&
+        orderBy == other.orderBy;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, movies.hashCode), isLoading.hashCode), page.hashCode),
-        quality.hashCode));
+        $jc(
+            $jc(
+                $jc($jc($jc(0, movies.hashCode), isLoading.hashCode),
+                    page.hashCode),
+                quality.hashCode),
+            genres.hashCode),
+        orderBy.hashCode));
   }
 
   @override
@@ -62,7 +85,9 @@ class _$AppState extends AppState {
           ..add('movies', movies)
           ..add('isLoading', isLoading)
           ..add('page', page)
-          ..add('quality', quality))
+          ..add('quality', quality)
+          ..add('genres', genres)
+          ..add('orderBy', orderBy))
         .toString();
   }
 }
@@ -86,6 +111,15 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   String get quality => _$this._quality;
   set quality(String quality) => _$this._quality = quality;
 
+  ListBuilder<String> _genres;
+  ListBuilder<String> get genres =>
+      _$this._genres ??= new ListBuilder<String>();
+  set genres(ListBuilder<String> genres) => _$this._genres = genres;
+
+  String _orderBy;
+  String get orderBy => _$this._orderBy;
+  set orderBy(String orderBy) => _$this._orderBy = orderBy;
+
   AppStateBuilder();
 
   AppStateBuilder get _$this {
@@ -94,6 +128,8 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
       _isLoading = _$v.isLoading;
       _page = _$v.page;
       _quality = _$v.quality;
+      _genres = _$v.genres?.toBuilder();
+      _orderBy = _$v.orderBy;
       _$v = null;
     }
     return this;
@@ -121,12 +157,17 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
               movies: movies.build(),
               isLoading: isLoading,
               page: page,
-              quality: quality);
+              quality: quality,
+              genres: genres.build(),
+              orderBy: orderBy);
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'movies';
         movies.build();
+
+        _$failedField = 'genres';
+        genres.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AppState', _$failedField, e.toString());

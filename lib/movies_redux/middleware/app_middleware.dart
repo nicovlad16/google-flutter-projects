@@ -29,7 +29,7 @@ class AppMiddleware {
       final GetMoviesStart startAction = action as GetMoviesStart;
 
       final List<Movie> movies =
-          await _moviesApi.getMovies(startAction.page, store.state.quality, store.state.genres.asList());
+          await _moviesApi.getMovies(startAction.page, store.state.quality, store.state.genres.asList(), store.state.orderBy);
 
       final GetMoviesSuccessful successful = GetMovies.successful(movies);
       store.dispatch(successful);

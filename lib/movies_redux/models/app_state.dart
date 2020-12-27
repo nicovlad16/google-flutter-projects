@@ -11,7 +11,8 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
     return _$AppState((AppStateBuilder builder) {
       builder
         ..isLoading = false
-        ..page = 1;
+        ..page = 1
+        ..orderBy = "desc";
     });
   }
 
@@ -26,5 +27,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
   @nullable
   String get quality;
 
-  BuiltList<String> genres;
+  BuiltList<String> get genres;
+
+  String get orderBy;
 }
