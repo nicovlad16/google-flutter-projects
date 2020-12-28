@@ -27,9 +27,15 @@ class AppMiddleware {
 
     try {
       final GetImagesStart startAction = action as GetImagesStart;
-      final List<UnsplashImage> images = await _unsplashApi.getImages(startAction.page);
-      final GetImagesSuccessful successful = GetImages.successful(images);
-      store.dispatch(successful);
+      if (store.state.searchTerm == null) {
+        final List<UnsplashImage> images = await _unsplashApi.getImages(startAction.page);
+        final GetImagesSuccessful successful = GetImages.successful(images);
+        store.dispatch(successful);
+      } else {
+        final List<UnsplashImage> images = await _unsplashApi.searchImages(startAction.page, store.state.searchTerm);
+        final GetImagesSuccessful successful = GetImages.successful(images);
+        store.dispatch(successful);
+      }
     } catch (e) {
       final GetImagesError error = GetImages.error(e);
       store.dispatch(error);

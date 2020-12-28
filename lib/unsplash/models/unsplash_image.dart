@@ -1,10 +1,8 @@
 library unsplash_image;
 
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:projects/unsplash/models/serializers.dart';
-
 
 part 'unsplash_image.g.dart';
 
@@ -19,7 +17,6 @@ abstract class UnsplashImage implements Built<UnsplashImage, UnsplashImageBuilde
 
   String get id;
 
-
   String get color;
 
   @nullable
@@ -32,7 +29,7 @@ abstract class UnsplashImage implements Built<UnsplashImage, UnsplashImageBuilde
   static Serializer<UnsplashImage> get serializer => _$unsplashImageSerializer;
 }
 
-abstract class ImageUrl implements Built<ImageUrl,ImageUrlBuilder >{
+abstract class ImageUrl implements Built<ImageUrl, ImageUrlBuilder> {
   factory ImageUrl([void Function(ImageUrlBuilder b) updates]) = _$ImageUrl;
 
   ImageUrl._();
@@ -41,5 +38,3 @@ abstract class ImageUrl implements Built<ImageUrl,ImageUrlBuilder >{
 
   static Serializer<ImageUrl> get serializer => _$imageUrlSerializer;
 }
-
-

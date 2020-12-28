@@ -13,11 +13,12 @@ class _$AppState extends AppState {
   final bool isLoading;
   @override
   final int page;
+  @override
+  final String searchTerm;
 
-  factory _$AppState([void Function(AppStateBuilder) updates]) =>
-      (new AppStateBuilder()..update(updates)).build();
+  factory _$AppState([void Function(AppStateBuilder) updates]) => (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.images, this.isLoading, this.page}) : super._() {
+  _$AppState._({this.images, this.isLoading, this.page, this.searchTerm}) : super._() {
     if (images == null) {
       throw new BuiltValueNullFieldError('AppState', 'images');
     }
@@ -30,8 +31,7 @@ class _$AppState extends AppState {
   }
 
   @override
-  AppState rebuild(void Function(AppStateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  AppState rebuild(void Function(AppStateBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   AppStateBuilder toBuilder() => new AppStateBuilder()..replace(this);
@@ -42,13 +42,13 @@ class _$AppState extends AppState {
     return other is AppState &&
         images == other.images &&
         isLoading == other.isLoading &&
-        page == other.page;
+        page == other.page &&
+        searchTerm == other.searchTerm;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, images.hashCode), isLoading.hashCode), page.hashCode));
+    return $jf($jc($jc($jc($jc(0, images.hashCode), isLoading.hashCode), page.hashCode), searchTerm.hashCode));
   }
 
   @override
@@ -56,7 +56,8 @@ class _$AppState extends AppState {
     return (newBuiltValueToStringHelper('AppState')
           ..add('images', images)
           ..add('isLoading', isLoading)
-          ..add('page', page))
+          ..add('page', page)
+          ..add('searchTerm', searchTerm))
         .toString();
   }
 }
@@ -65,8 +66,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState _$v;
 
   ListBuilder<UnsplashImage> _images;
-  ListBuilder<UnsplashImage> get images =>
-      _$this._images ??= new ListBuilder<UnsplashImage>();
+  ListBuilder<UnsplashImage> get images => _$this._images ??= new ListBuilder<UnsplashImage>();
   set images(ListBuilder<UnsplashImage> images) => _$this._images = images;
 
   bool _isLoading;
@@ -77,6 +77,10 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   int get page => _$this._page;
   set page(int page) => _$this._page = page;
 
+  String _searchTerm;
+  String get searchTerm => _$this._searchTerm;
+  set searchTerm(String searchTerm) => _$this._searchTerm = searchTerm;
+
   AppStateBuilder();
 
   AppStateBuilder get _$this {
@@ -84,6 +88,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
       _images = _$v.images?.toBuilder();
       _isLoading = _$v.isLoading;
       _page = _$v.page;
+      _searchTerm = _$v.searchTerm;
       _$v = null;
     }
     return this;
@@ -106,17 +111,15 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState build() {
     _$AppState _$result;
     try {
-      _$result = _$v ??
-          new _$AppState._(
-              images: images.build(), isLoading: isLoading, page: page);
+      _$result =
+          _$v ?? new _$AppState._(images: images.build(), isLoading: isLoading, page: page, searchTerm: searchTerm);
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'images';
         images.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'AppState', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError('AppState', _$failedField, e.toString());
       }
       rethrow;
     }

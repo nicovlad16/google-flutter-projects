@@ -6,8 +6,7 @@ part of unsplash_image;
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<UnsplashImage> _$unsplashImageSerializer =
-    new _$UnsplashImageSerializer();
+Serializer<UnsplashImage> _$unsplashImageSerializer = new _$UnsplashImageSerializer();
 Serializer<ImageUrl> _$imageUrlSerializer = new _$ImageUrlSerializer();
 
 class _$UnsplashImageSerializer implements StructuredSerializer<UnsplashImage> {
@@ -23,26 +22,20 @@ class _$UnsplashImageSerializer implements StructuredSerializer<UnsplashImage> {
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'color',
-      serializers.serialize(object.color,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.color, specifiedType: const FullType(String)),
       'likes',
       serializers.serialize(object.likes, specifiedType: const FullType(int)),
       'urls',
-      serializers.serialize(object.urls,
-          specifiedType: const FullType(ImageUrl)),
+      serializers.serialize(object.urls, specifiedType: const FullType(ImageUrl)),
     ];
     if (object.description != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(object.description,
-            specifiedType: const FullType(String)));
+      result..add('description')..add(serializers.serialize(object.description, specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  UnsplashImage deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+  UnsplashImage deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new UnsplashImageBuilder();
 
@@ -53,24 +46,19 @@ class _$UnsplashImageSerializer implements StructuredSerializer<UnsplashImage> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'color':
-          result.color = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.color = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'description':
-          result.description = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'likes':
-          result.likes = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+          result.likes = serializers.deserialize(value, specifiedType: const FullType(int)) as int;
           break;
         case 'urls':
-          result.urls.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ImageUrl)) as ImageUrl);
+          result.urls.replace(serializers.deserialize(value, specifiedType: const FullType(ImageUrl)) as ImageUrl);
           break;
       }
     }
@@ -90,8 +78,7 @@ class _$ImageUrlSerializer implements StructuredSerializer<ImageUrl> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'small',
-      serializers.serialize(object.small,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.small, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -109,8 +96,7 @@ class _$ImageUrlSerializer implements StructuredSerializer<ImageUrl> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'small':
-          result.small = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.small = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -134,9 +120,7 @@ class _$UnsplashImage extends UnsplashImage {
   factory _$UnsplashImage([void Function(UnsplashImageBuilder) updates]) =>
       (new UnsplashImageBuilder()..update(updates)).build();
 
-  _$UnsplashImage._(
-      {this.id, this.color, this.description, this.likes, this.urls})
-      : super._() {
+  _$UnsplashImage._({this.id, this.color, this.description, this.likes, this.urls}) : super._() {
     if (id == null) {
       throw new BuiltValueNullFieldError('UnsplashImage', 'id');
     }
@@ -152,8 +136,7 @@ class _$UnsplashImage extends UnsplashImage {
   }
 
   @override
-  UnsplashImage rebuild(void Function(UnsplashImageBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  UnsplashImage rebuild(void Function(UnsplashImageBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   UnsplashImageBuilder toBuilder() => new UnsplashImageBuilder()..replace(this);
@@ -171,10 +154,8 @@ class _$UnsplashImage extends UnsplashImage {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc($jc($jc(0, id.hashCode), color.hashCode), description.hashCode),
-            likes.hashCode),
-        urls.hashCode));
+    return $jf(
+        $jc($jc($jc($jc($jc(0, id.hashCode), color.hashCode), description.hashCode), likes.hashCode), urls.hashCode));
   }
 
   @override
@@ -189,8 +170,7 @@ class _$UnsplashImage extends UnsplashImage {
   }
 }
 
-class UnsplashImageBuilder
-    implements Builder<UnsplashImage, UnsplashImageBuilder> {
+class UnsplashImageBuilder implements Builder<UnsplashImage, UnsplashImageBuilder> {
   _$UnsplashImage _$v;
 
   String _id;
@@ -245,20 +225,14 @@ class UnsplashImageBuilder
     _$UnsplashImage _$result;
     try {
       _$result = _$v ??
-          new _$UnsplashImage._(
-              id: id,
-              color: color,
-              description: description,
-              likes: likes,
-              urls: urls.build());
+          new _$UnsplashImage._(id: id, color: color, description: description, likes: likes, urls: urls.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'urls';
         urls.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'UnsplashImage', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError('UnsplashImage', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -271,8 +245,7 @@ class _$ImageUrl extends ImageUrl {
   @override
   final String small;
 
-  factory _$ImageUrl([void Function(ImageUrlBuilder) updates]) =>
-      (new ImageUrlBuilder()..update(updates)).build();
+  factory _$ImageUrl([void Function(ImageUrlBuilder) updates]) => (new ImageUrlBuilder()..update(updates)).build();
 
   _$ImageUrl._({this.small}) : super._() {
     if (small == null) {
@@ -281,8 +254,7 @@ class _$ImageUrl extends ImageUrl {
   }
 
   @override
-  ImageUrl rebuild(void Function(ImageUrlBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  ImageUrl rebuild(void Function(ImageUrlBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   ImageUrlBuilder toBuilder() => new ImageUrlBuilder()..replace(this);
@@ -300,8 +272,7 @@ class _$ImageUrl extends ImageUrl {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('ImageUrl')..add('small', small))
-        .toString();
+    return (newBuiltValueToStringHelper('ImageUrl')..add('small', small)).toString();
   }
 }
 

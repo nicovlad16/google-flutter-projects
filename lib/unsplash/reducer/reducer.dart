@@ -18,6 +18,9 @@ AppState reducer(AppState state, dynamic action) {
   } else if (action is GetMoviesError) {
     builder.isLoading = false;
   }
+  // else if (action is SetSearchTerm) {
+  //   builder.searchTerm = action.searchTerm;
+  // }
 
   return builder.build();
 }

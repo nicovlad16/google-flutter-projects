@@ -9,8 +9,10 @@ part 'app_state.g.dart';
 abstract class AppState implements Built<AppState, AppStateBuilder> {
   factory AppState() {
     return _$AppState((AppStateBuilder builder) {
-      builder..isLoading = false
-      ..page = 1;
+      builder
+        ..isLoading = false
+        ..page = 1
+        ..searchTerm = null;
     });
   }
 
@@ -22,5 +24,6 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   int get page;
 
+  @nullable
   String get searchTerm;
 }

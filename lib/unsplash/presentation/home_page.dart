@@ -15,7 +15,9 @@ class HomePage extends StatelessWidget {
     return ImagesViewModelContainer(
       builder: (BuildContext context, ImagesViewModel imagesViewModel) {
         return Scaffold(
-          appBar: AppBar(title: Text(title)),
+          appBar: AppBar(
+            title: Text(title),
+          ),
           body: Builder(
             builder: (BuildContext context) {
               if (imagesViewModel.isLoading) {
@@ -24,29 +26,41 @@ class HomePage extends StatelessWidget {
                 );
               }
 
-              return Column(
-                children: <Widget>[
-
-                  Expanded(
-                    child: GridView.builder(
-                      itemCount: imagesViewModel.images.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Image.network(imagesViewModel.images[index].urls.small),
-                        );
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.search),
+                        hintText: 'search',
+                      ),
+                      onSaved: (String value) {},
+                      validator: (String value) {
+                        return value.trim() == '' ? 'please input term or leave empty' : null;
                       },
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                     ),
-                  ),
-                  RaisedButton(
-                    child: const Text('load more'),
-                    onPressed: () {
-                      final Store<AppState> store = StoreProvider.of<AppState>(context);
-                      store.dispatch(GetImages.start(store.state.page));
-                    },
-                  ),
-                ],
+                    Expanded(
+                      child: GridView.builder(
+                        itemCount: imagesViewModel.images.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.network(imagesViewModel.images[index].urls.small),
+                          );
+                        },
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                      ),
+                    ),
+                    RaisedButton(
+                      child: const Text('load more'),
+                      onPressed: () {
+                        final Store<AppState> store = StoreProvider.of<AppState>(context);
+                        store.dispatch(GetImages.start(store.state.page));
+                      },
+                    ),
+                  ],
+                ),
               );
             },
           ),
