@@ -20,9 +20,17 @@ class _$AppState extends AppState {
   @override
   final String orderBy;
 
-  factory _$AppState([void Function(AppStateBuilder) updates]) => (new AppStateBuilder()..update(updates)).build();
+  factory _$AppState([void Function(AppStateBuilder) updates]) =>
+      (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.movies, this.isLoading, this.page, this.quality, this.genres, this.orderBy}) : super._() {
+  _$AppState._(
+      {this.movies,
+      this.isLoading,
+      this.page,
+      this.quality,
+      this.genres,
+      this.orderBy})
+      : super._() {
     if (movies == null) {
       throw new BuiltValueNullFieldError('AppState', 'movies');
     }
@@ -41,7 +49,8 @@ class _$AppState extends AppState {
   }
 
   @override
-  AppState rebuild(void Function(AppStateBuilder) updates) => (toBuilder()..update(updates)).build();
+  AppState rebuild(void Function(AppStateBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
 
   @override
   AppStateBuilder toBuilder() => new AppStateBuilder()..replace(this);
@@ -61,7 +70,11 @@ class _$AppState extends AppState {
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc($jc($jc(0, movies.hashCode), isLoading.hashCode), page.hashCode), quality.hashCode),
+        $jc(
+            $jc(
+                $jc($jc($jc(0, movies.hashCode), isLoading.hashCode),
+                    page.hashCode),
+                quality.hashCode),
             genres.hashCode),
         orderBy.hashCode));
   }
@@ -99,7 +112,8 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   set quality(String quality) => _$this._quality = quality;
 
   ListBuilder<String> _genres;
-  ListBuilder<String> get genres => _$this._genres ??= new ListBuilder<String>();
+  ListBuilder<String> get genres =>
+      _$this._genres ??= new ListBuilder<String>();
   set genres(ListBuilder<String> genres) => _$this._genres = genres;
 
   String _orderBy;
@@ -155,7 +169,8 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
         _$failedField = 'genres';
         genres.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError('AppState', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError(
+            'AppState', _$failedField, e.toString());
       }
       rethrow;
     }

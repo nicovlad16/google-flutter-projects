@@ -34,7 +34,8 @@ mixin _$SetGenres {
 
 /// @nodoc
 abstract class $SetGenresCopyWith<$Res> {
-  factory $SetGenresCopyWith(SetGenres value, $Res Function(SetGenres) then) = _$SetGenresCopyWithImpl<$Res>;
+  factory $SetGenresCopyWith(SetGenres value, $Res Function(SetGenres) then) =
+      _$SetGenresCopyWithImpl<$Res>;
   $Res call({List<String> genres});
 }
 
@@ -58,13 +59,16 @@ class _$SetGenresCopyWithImpl<$Res> implements $SetGenresCopyWith<$Res> {
 
 /// @nodoc
 abstract class _$SetGenresCopyWith<$Res> implements $SetGenresCopyWith<$Res> {
-  factory _$SetGenresCopyWith(_SetGenres value, $Res Function(_SetGenres) then) = __$SetGenresCopyWithImpl<$Res>;
+  factory _$SetGenresCopyWith(
+          _SetGenres value, $Res Function(_SetGenres) then) =
+      __$SetGenresCopyWithImpl<$Res>;
   @override
   $Res call({List<String> genres});
 }
 
 /// @nodoc
-class __$SetGenresCopyWithImpl<$Res> extends _$SetGenresCopyWithImpl<$Res> implements _$SetGenresCopyWith<$Res> {
+class __$SetGenresCopyWithImpl<$Res> extends _$SetGenresCopyWithImpl<$Res>
+    implements _$SetGenresCopyWith<$Res> {
   __$SetGenresCopyWithImpl(_SetGenres _value, $Res Function(_SetGenres) _then)
       : super(_value, (v) => _then(v as _SetGenres));
 
@@ -97,14 +101,17 @@ class _$_SetGenres implements _SetGenres {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SetGenres &&
-            (identical(other.genres, genres) || const DeepCollectionEquality().equals(other.genres, genres)));
+            (identical(other.genres, genres) ||
+                const DeepCollectionEquality().equals(other.genres, genres)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(genres);
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(genres);
 
   @override
-  _$SetGenresCopyWith<_SetGenres> get copyWith => __$SetGenresCopyWithImpl<_SetGenres>(this, _$identity);
+  _$SetGenresCopyWith<_SetGenres> get copyWith =>
+      __$SetGenresCopyWithImpl<_SetGenres>(this, _$identity);
 }
 
 abstract class _SetGenres implements SetGenres {
