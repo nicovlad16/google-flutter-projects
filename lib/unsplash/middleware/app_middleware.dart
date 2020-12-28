@@ -27,7 +27,7 @@ class AppMiddleware {
 
     try {
       final GetImagesStart startAction = action as GetImagesStart;
-      final List<UnsplashImage> images = await _unsplashApi.getImages();
+      final List<UnsplashImage> images = await _unsplashApi.getImages(startAction.page);
       final GetImagesSuccessful successful = GetImages.successful(images);
       store.dispatch(successful);
     } catch (e) {

@@ -14,8 +14,10 @@ class _$GetImagesTearOff {
   const _$GetImagesTearOff();
 
 // ignore: unused_element
-  GetImagesStart start() {
-    return const GetImagesStart();
+  GetImagesStart start(int page) {
+    return GetImagesStart(
+      page,
+    );
   }
 
 // ignore: unused_element
@@ -41,13 +43,13 @@ const $GetImages = _$GetImagesTearOff();
 mixin _$GetImages {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result start(),
+    @required Result start(int page),
     @required Result successful(List<UnsplashImage> images),
     @required Result error(dynamic error),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result start(),
+    Result start(int page),
     Result successful(List<UnsplashImage> images),
     Result error(dynamic error),
     @required Result orElse(),
@@ -87,6 +89,7 @@ abstract class $GetImagesStartCopyWith<$Res> {
   factory $GetImagesStartCopyWith(
           GetImagesStart value, $Res Function(GetImagesStart) then) =
       _$GetImagesStartCopyWithImpl<$Res>;
+  $Res call({int page});
 }
 
 /// @nodoc
@@ -98,49 +101,69 @@ class _$GetImagesStartCopyWithImpl<$Res> extends _$GetImagesCopyWithImpl<$Res>
 
   @override
   GetImagesStart get _value => super._value as GetImagesStart;
+
+  @override
+  $Res call({
+    Object page = freezed,
+  }) {
+    return _then(GetImagesStart(
+      page == freezed ? _value.page : page as int,
+    ));
+  }
 }
 
 /// @nodoc
 class _$GetImagesStart implements GetImagesStart {
-  const _$GetImagesStart();
+  const _$GetImagesStart(this.page) : assert(page != null);
+
+  @override
+  final int page;
 
   @override
   String toString() {
-    return 'GetImages.start()';
+    return 'GetImages.start(page: $page)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is GetImagesStart);
+    return identical(this, other) ||
+        (other is GetImagesStart &&
+            (identical(other.page, page) ||
+                const DeepCollectionEquality().equals(other.page, page)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(page);
+
+  @override
+  $GetImagesStartCopyWith<GetImagesStart> get copyWith =>
+      _$GetImagesStartCopyWithImpl<GetImagesStart>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result start(),
+    @required Result start(int page),
     @required Result successful(List<UnsplashImage> images),
     @required Result error(dynamic error),
   }) {
     assert(start != null);
     assert(successful != null);
     assert(error != null);
-    return start();
+    return start(page);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result start(),
+    Result start(int page),
     Result successful(List<UnsplashImage> images),
     Result error(dynamic error),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (start != null) {
-      return start();
+      return start(page);
     }
     return orElse();
   }
@@ -175,7 +198,10 @@ class _$GetImagesStart implements GetImagesStart {
 }
 
 abstract class GetImagesStart implements GetImages {
-  const factory GetImagesStart() = _$GetImagesStart;
+  const factory GetImagesStart(int page) = _$GetImagesStart;
+
+  int get page;
+  $GetImagesStartCopyWith<GetImagesStart> get copyWith;
 }
 
 /// @nodoc
@@ -238,7 +264,7 @@ class _$GetImagesSuccessful implements GetImagesSuccessful {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result start(),
+    @required Result start(int page),
     @required Result successful(List<UnsplashImage> images),
     @required Result error(dynamic error),
   }) {
@@ -251,7 +277,7 @@ class _$GetImagesSuccessful implements GetImagesSuccessful {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result start(),
+    Result start(int page),
     Result successful(List<UnsplashImage> images),
     Result error(dynamic error),
     @required Result orElse(),
@@ -359,7 +385,7 @@ class _$GetImagesError implements GetImagesError {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result start(),
+    @required Result start(int page),
     @required Result successful(List<UnsplashImage> images),
     @required Result error(dynamic error),
   }) {
@@ -372,7 +398,7 @@ class _$GetImagesError implements GetImagesError {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result start(),
+    Result start(int page),
     Result successful(List<UnsplashImage> images),
     Result error(dynamic error),
     @required Result orElse(),

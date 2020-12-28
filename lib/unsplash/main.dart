@@ -22,7 +22,7 @@ void main() {
     middleware: appMiddleware.middleware,
   );
 
-  store.dispatch(const GetImages.start());
+  store.dispatch(const GetImages.start(1));
   runApp(MyApp(store: store));
 }
 

@@ -18,14 +18,34 @@ class UnsplashApi {
     'Authorization': 'Client-ID $_accessKey',
   };
 
-  Future<List<UnsplashImage>> getImages() async {
+  Future<List<UnsplashImage>> getImages(int page) async {
     final Uri url = Uri.parse('https://api.unsplash.com/photos').replace(
-      queryParameters: <String, String>{},
+      queryParameters: <String, String>{
+        'per_page': '3',
+        'page': '$page',
+      },
     );
 
     final Response response = await _client.get(url, headers: headers);
 
     final List<dynamic> data = jsonDecode(response.body);
+    final List<UnsplashImage> images = data.map((dynamic json) => UnsplashImage.from(json)).toList();
+
+    return images;
+  }
+
+  Future<List<UnsplashImage>> searchImages(int page, String searchTerm) async {
+    final Uri url = Uri.parse('https://api.unsplash.com/photos').replace(
+      queryParameters: <String, String>{
+        'per_page': '3',
+        'page': '$page',
+        'query': searchTerm,
+      },
+    );
+
+    final Response response = await _client.get(url, headers: headers);
+
+    final List<dynamic> data = jsonDecode(response.body)['results'];
     final List<UnsplashImage> images = data.map((dynamic json) => UnsplashImage.from(json)).toList();
 
     return images;

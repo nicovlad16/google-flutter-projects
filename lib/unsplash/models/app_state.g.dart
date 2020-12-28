@@ -11,16 +11,21 @@ class _$AppState extends AppState {
   final BuiltList<UnsplashImage> images;
   @override
   final bool isLoading;
+  @override
+  final int page;
 
   factory _$AppState([void Function(AppStateBuilder) updates]) =>
       (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.images, this.isLoading}) : super._() {
+  _$AppState._({this.images, this.isLoading, this.page}) : super._() {
     if (images == null) {
       throw new BuiltValueNullFieldError('AppState', 'images');
     }
     if (isLoading == null) {
       throw new BuiltValueNullFieldError('AppState', 'isLoading');
+    }
+    if (page == null) {
+      throw new BuiltValueNullFieldError('AppState', 'page');
     }
   }
 
@@ -36,19 +41,22 @@ class _$AppState extends AppState {
     if (identical(other, this)) return true;
     return other is AppState &&
         images == other.images &&
-        isLoading == other.isLoading;
+        isLoading == other.isLoading &&
+        page == other.page;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, images.hashCode), isLoading.hashCode));
+    return $jf(
+        $jc($jc($jc(0, images.hashCode), isLoading.hashCode), page.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('AppState')
           ..add('images', images)
-          ..add('isLoading', isLoading))
+          ..add('isLoading', isLoading)
+          ..add('page', page))
         .toString();
   }
 }
@@ -65,12 +73,17 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   bool get isLoading => _$this._isLoading;
   set isLoading(bool isLoading) => _$this._isLoading = isLoading;
 
+  int _page;
+  int get page => _$this._page;
+  set page(int page) => _$this._page = page;
+
   AppStateBuilder();
 
   AppStateBuilder get _$this {
     if (_$v != null) {
       _images = _$v.images?.toBuilder();
       _isLoading = _$v.isLoading;
+      _page = _$v.page;
       _$v = null;
     }
     return this;
@@ -93,8 +106,9 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState build() {
     _$AppState _$result;
     try {
-      _$result =
-          _$v ?? new _$AppState._(images: images.build(), isLoading: isLoading);
+      _$result = _$v ??
+          new _$AppState._(
+              images: images.build(), isLoading: isLoading, page: page);
     } catch (_) {
       String _$failedField;
       try {

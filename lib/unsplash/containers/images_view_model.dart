@@ -7,21 +7,26 @@ import 'package:redux/redux.dart';
 class ImagesViewModelContainer extends StatelessWidget {
   const ImagesViewModelContainer({Key key, @required this.builder}) : super(key: key);
 
-  final ViewModelBuilder<GetImagesViewModel> builder;
+  final ViewModelBuilder<ImagesViewModel> builder;
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, GetImagesViewModel>(
+    return StoreConnector<AppState, ImagesViewModel>(
       builder: builder,
       converter: (Store<AppState> store) {
-        return GetImagesViewModel(store.state.images.asList());
+        final AppState state = store.state;
+        return ImagesViewModel(
+          state.images.asList(),
+          state.isLoading,
+        );
       },
     );
   }
 }
 
-class GetImagesViewModel {
-  GetImagesViewModel(this.images);
+class ImagesViewModel {
+  ImagesViewModel(this.images, this.isLoading);
 
   final List<UnsplashImage> images;
+  final bool isLoading;
 }

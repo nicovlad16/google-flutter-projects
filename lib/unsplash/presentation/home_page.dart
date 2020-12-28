@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:projects/unsplash/containers/images_view_model_container.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:projects/unsplash/actions/get_images.dart';
+import 'package:projects/unsplash/containers/images_view_model.dart';
+import 'package:projects/unsplash/models/app_state.dart';
+import 'package:redux/redux.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key, this.title}) : super(key: key);
@@ -9,13 +13,20 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ImagesViewModelContainer(
-      builder: (BuildContext context, GetImagesViewModel imagesViewModel) {
+      builder: (BuildContext context, ImagesViewModel imagesViewModel) {
         return Scaffold(
           appBar: AppBar(title: Text(title)),
           body: Builder(
             builder: (BuildContext context) {
+              if (imagesViewModel.isLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+
               return Column(
                 children: <Widget>[
+
                   Expanded(
                     child: GridView.builder(
                       itemCount: imagesViewModel.images.length,
@@ -27,6 +38,13 @@ class HomePage extends StatelessWidget {
                       },
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                     ),
+                  ),
+                  RaisedButton(
+                    child: const Text('load more'),
+                    onPressed: () {
+                      final Store<AppState> store = StoreProvider.of<AppState>(context);
+                      store.dispatch(GetImages.start(store.state.page));
+                    },
                   ),
                 ],
               );

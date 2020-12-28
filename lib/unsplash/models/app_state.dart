@@ -9,7 +9,8 @@ part 'app_state.g.dart';
 abstract class AppState implements Built<AppState, AppStateBuilder> {
   factory AppState() {
     return _$AppState((AppStateBuilder builder) {
-      builder.isLoading = false;
+      builder..isLoading = false
+      ..page = 1;
     });
   }
 
@@ -18,4 +19,8 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
   BuiltList<UnsplashImage> get images;
 
   bool get isLoading;
+
+  int get page;
+
+  String get searchTerm;
 }
