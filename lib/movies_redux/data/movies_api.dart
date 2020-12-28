@@ -15,7 +15,7 @@ class MoviesApi {
   Future<List<Movie>> getMovies(int page, String quality, List<String> genres, String orderBy) async {
     final Uri url = Uri.parse('https://yts.mx/api/v2/list_movies.json').replace(
       queryParameters: <String, String>{
-        'limit': '3',
+        'limit': '48',
         'page': '$page',
         'order_by': orderBy,
         if (quality != null) 'quality': quality,
