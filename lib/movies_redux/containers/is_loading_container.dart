@@ -1,6 +1,5 @@
 part of containers;
 
-
 class IsLoadingContainer extends StatelessWidget {
   const IsLoadingContainer({Key key, @required this.builder}) : super(key: key);
 

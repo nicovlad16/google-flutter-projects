@@ -1,6 +1,5 @@
 part of actions;
 
-
 @freezed
 abstract class GetImages with _$GetImages {
   const factory GetImages.start(int page) = GetImagesStart;

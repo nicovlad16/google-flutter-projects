@@ -8,6 +8,4 @@ import 'package:projects/movies_redux/models/serializers.dart';
 part 'app_state.dart';
 part 'movie.dart';
 
-
 part 'index.g.dart';
-

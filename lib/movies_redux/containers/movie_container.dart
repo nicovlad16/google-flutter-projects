@@ -1,6 +1,5 @@
 part of containers;
 
-
 class MoviesContainer extends StatelessWidget {
   const MoviesContainer({Key key, @required this.builder}) : super(key: key);
 
