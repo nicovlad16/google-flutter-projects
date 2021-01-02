@@ -1,9 +1,6 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:projects/movies_redux/actions/get_movies.dart';
-import 'package:projects/movies_redux/actions/set_genres.dart';
-import 'package:projects/movies_redux/actions/set_order_by.dart';
-import 'package:projects/movies_redux/actions/set_quality.dart';
-import 'package:projects/movies_redux/models/app_state.dart';
+import 'package:projects/movies_redux/actions/index.dart';
+import 'package:projects/movies_redux/models/index.dart';
 import 'package:redux/redux.dart';
 
 Reducer<AppState> reducer = combineReducers(

@@ -1,8 +1,7 @@
 import 'package:meta/meta.dart';
-import 'package:projects/unsplash/actions/get_images.dart';
+import 'package:projects/unsplash/actions/index.dart';
 import 'package:projects/unsplash/data/unsplash_api.dart';
-import 'package:projects/unsplash/models/app_state.dart';
-import 'package:projects/unsplash/models/unsplash_image.dart';
+import 'package:projects/unsplash/models/index.dart';
 import 'package:redux/redux.dart';
 
 class AppMiddleware {

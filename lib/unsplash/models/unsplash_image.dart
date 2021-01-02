@@ -1,10 +1,4 @@
-library unsplash_image;
-
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
-import 'package:projects/unsplash/models/serializers.dart';
-
-part 'unsplash_image.g.dart';
+part of models;
 
 abstract class UnsplashImage implements Built<UnsplashImage, UnsplashImageBuilder> {
   factory UnsplashImage([void Function(UnsplashImageBuilder b) updates]) = _$UnsplashImage;

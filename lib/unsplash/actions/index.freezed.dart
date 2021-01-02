@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of get_images;
+part of actions;
 
 // **************************************************************************
 // FreezedGenerator
@@ -71,7 +71,8 @@ mixin _$GetImages {
 
 /// @nodoc
 abstract class $GetImagesCopyWith<$Res> {
-  factory $GetImagesCopyWith(GetImages value, $Res Function(GetImages) then) = _$GetImagesCopyWithImpl<$Res>;
+  factory $GetImagesCopyWith(GetImages value, $Res Function(GetImages) then) =
+      _$GetImagesCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -85,7 +86,8 @@ class _$GetImagesCopyWithImpl<$Res> implements $GetImagesCopyWith<$Res> {
 
 /// @nodoc
 abstract class $GetImagesStartCopyWith<$Res> {
-  factory $GetImagesStartCopyWith(GetImagesStart value, $Res Function(GetImagesStart) then) =
+  factory $GetImagesStartCopyWith(
+          GetImagesStart value, $Res Function(GetImagesStart) then) =
       _$GetImagesStartCopyWithImpl<$Res>;
   $Res call({int page});
 }
@@ -93,7 +95,8 @@ abstract class $GetImagesStartCopyWith<$Res> {
 /// @nodoc
 class _$GetImagesStartCopyWithImpl<$Res> extends _$GetImagesCopyWithImpl<$Res>
     implements $GetImagesStartCopyWith<$Res> {
-  _$GetImagesStartCopyWithImpl(GetImagesStart _value, $Res Function(GetImagesStart) _then)
+  _$GetImagesStartCopyWithImpl(
+      GetImagesStart _value, $Res Function(GetImagesStart) _then)
       : super(_value, (v) => _then(v as GetImagesStart));
 
   @override
@@ -125,11 +128,13 @@ class _$GetImagesStart implements GetImagesStart {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is GetImagesStart &&
-            (identical(other.page, page) || const DeepCollectionEquality().equals(other.page, page)));
+            (identical(other.page, page) ||
+                const DeepCollectionEquality().equals(other.page, page)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(page);
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(page);
 
   @override
   $GetImagesStartCopyWith<GetImagesStart> get copyWith =>
@@ -201,15 +206,18 @@ abstract class GetImagesStart implements GetImages {
 
 /// @nodoc
 abstract class $GetImagesSuccessfulCopyWith<$Res> {
-  factory $GetImagesSuccessfulCopyWith(GetImagesSuccessful value, $Res Function(GetImagesSuccessful) then) =
+  factory $GetImagesSuccessfulCopyWith(
+          GetImagesSuccessful value, $Res Function(GetImagesSuccessful) then) =
       _$GetImagesSuccessfulCopyWithImpl<$Res>;
   $Res call({List<UnsplashImage> images});
 }
 
 /// @nodoc
-class _$GetImagesSuccessfulCopyWithImpl<$Res> extends _$GetImagesCopyWithImpl<$Res>
+class _$GetImagesSuccessfulCopyWithImpl<$Res>
+    extends _$GetImagesCopyWithImpl<$Res>
     implements $GetImagesSuccessfulCopyWith<$Res> {
-  _$GetImagesSuccessfulCopyWithImpl(GetImagesSuccessful _value, $Res Function(GetImagesSuccessful) _then)
+  _$GetImagesSuccessfulCopyWithImpl(
+      GetImagesSuccessful _value, $Res Function(GetImagesSuccessful) _then)
       : super(_value, (v) => _then(v as GetImagesSuccessful));
 
   @override
@@ -241,11 +249,13 @@ class _$GetImagesSuccessful implements GetImagesSuccessful {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is GetImagesSuccessful &&
-            (identical(other.images, images) || const DeepCollectionEquality().equals(other.images, images)));
+            (identical(other.images, images) ||
+                const DeepCollectionEquality().equals(other.images, images)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(images);
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(images);
 
   @override
   $GetImagesSuccessfulCopyWith<GetImagesSuccessful> get copyWith =>
@@ -309,7 +319,8 @@ class _$GetImagesSuccessful implements GetImagesSuccessful {
 }
 
 abstract class GetImagesSuccessful implements GetImages {
-  const factory GetImagesSuccessful(List<UnsplashImage> images) = _$GetImagesSuccessful;
+  const factory GetImagesSuccessful(List<UnsplashImage> images) =
+      _$GetImagesSuccessful;
 
   List<UnsplashImage> get images;
   $GetImagesSuccessfulCopyWith<GetImagesSuccessful> get copyWith;
@@ -317,7 +328,8 @@ abstract class GetImagesSuccessful implements GetImages {
 
 /// @nodoc
 abstract class $GetImagesErrorCopyWith<$Res> {
-  factory $GetImagesErrorCopyWith(GetImagesError value, $Res Function(GetImagesError) then) =
+  factory $GetImagesErrorCopyWith(
+          GetImagesError value, $Res Function(GetImagesError) then) =
       _$GetImagesErrorCopyWithImpl<$Res>;
   $Res call({dynamic error});
 }
@@ -325,7 +337,8 @@ abstract class $GetImagesErrorCopyWith<$Res> {
 /// @nodoc
 class _$GetImagesErrorCopyWithImpl<$Res> extends _$GetImagesCopyWithImpl<$Res>
     implements $GetImagesErrorCopyWith<$Res> {
-  _$GetImagesErrorCopyWithImpl(GetImagesError _value, $Res Function(GetImagesError) _then)
+  _$GetImagesErrorCopyWithImpl(
+      GetImagesError _value, $Res Function(GetImagesError) _then)
       : super(_value, (v) => _then(v as GetImagesError));
 
   @override
@@ -357,11 +370,13 @@ class _$GetImagesError implements GetImagesError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is GetImagesError &&
-            (identical(other.error, error) || const DeepCollectionEquality().equals(other.error, error)));
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
   @override
   $GetImagesErrorCopyWith<GetImagesError> get copyWith =>
@@ -429,4 +444,125 @@ abstract class GetImagesError implements GetImages {
 
   dynamic get error;
   $GetImagesErrorCopyWith<GetImagesError> get copyWith;
+}
+
+/// @nodoc
+class _$SetSearchTermTearOff {
+  const _$SetSearchTermTearOff();
+
+// ignore: unused_element
+  _SetSearchTerm call(String searchTerm) {
+    return _SetSearchTerm(
+      searchTerm,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $SetSearchTerm = _$SetSearchTermTearOff();
+
+/// @nodoc
+mixin _$SetSearchTerm {
+  String get searchTerm;
+
+  $SetSearchTermCopyWith<SetSearchTerm> get copyWith;
+}
+
+/// @nodoc
+abstract class $SetSearchTermCopyWith<$Res> {
+  factory $SetSearchTermCopyWith(
+          SetSearchTerm value, $Res Function(SetSearchTerm) then) =
+      _$SetSearchTermCopyWithImpl<$Res>;
+  $Res call({String searchTerm});
+}
+
+/// @nodoc
+class _$SetSearchTermCopyWithImpl<$Res>
+    implements $SetSearchTermCopyWith<$Res> {
+  _$SetSearchTermCopyWithImpl(this._value, this._then);
+
+  final SetSearchTerm _value;
+  // ignore: unused_field
+  final $Res Function(SetSearchTerm) _then;
+
+  @override
+  $Res call({
+    Object searchTerm = freezed,
+  }) {
+    return _then(_value.copyWith(
+      searchTerm:
+          searchTerm == freezed ? _value.searchTerm : searchTerm as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$SetSearchTermCopyWith<$Res>
+    implements $SetSearchTermCopyWith<$Res> {
+  factory _$SetSearchTermCopyWith(
+          _SetSearchTerm value, $Res Function(_SetSearchTerm) then) =
+      __$SetSearchTermCopyWithImpl<$Res>;
+  @override
+  $Res call({String searchTerm});
+}
+
+/// @nodoc
+class __$SetSearchTermCopyWithImpl<$Res>
+    extends _$SetSearchTermCopyWithImpl<$Res>
+    implements _$SetSearchTermCopyWith<$Res> {
+  __$SetSearchTermCopyWithImpl(
+      _SetSearchTerm _value, $Res Function(_SetSearchTerm) _then)
+      : super(_value, (v) => _then(v as _SetSearchTerm));
+
+  @override
+  _SetSearchTerm get _value => super._value as _SetSearchTerm;
+
+  @override
+  $Res call({
+    Object searchTerm = freezed,
+  }) {
+    return _then(_SetSearchTerm(
+      searchTerm == freezed ? _value.searchTerm : searchTerm as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SetSearchTerm implements _SetSearchTerm {
+  const _$_SetSearchTerm(this.searchTerm) : assert(searchTerm != null);
+
+  @override
+  final String searchTerm;
+
+  @override
+  String toString() {
+    return 'SetSearchTerm(searchTerm: $searchTerm)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SetSearchTerm &&
+            (identical(other.searchTerm, searchTerm) ||
+                const DeepCollectionEquality()
+                    .equals(other.searchTerm, searchTerm)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(searchTerm);
+
+  @override
+  _$SetSearchTermCopyWith<_SetSearchTerm> get copyWith =>
+      __$SetSearchTermCopyWithImpl<_SetSearchTerm>(this, _$identity);
+}
+
+abstract class _SetSearchTerm implements SetSearchTerm {
+  const factory _SetSearchTerm(String searchTerm) = _$_SetSearchTerm;
+
+  @override
+  String get searchTerm;
+  @override
+  _$SetSearchTermCopyWith<_SetSearchTerm> get copyWith;
 }

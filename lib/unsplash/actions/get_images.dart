@@ -1,9 +1,5 @@
-library get_images;
+part of actions;
 
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:projects/unsplash/models/unsplash_image.dart';
-
-part 'get_images.freezed.dart';
 
 @freezed
 abstract class GetImages with _$GetImages {

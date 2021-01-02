@@ -1,8 +1,7 @@
 import 'package:meta/meta.dart';
-import 'package:projects/movies_redux/actions/get_movies.dart';
+import 'package:projects/movies_redux/actions/index.dart';
 import 'package:projects/movies_redux/data/movies_api.dart';
-import 'package:projects/movies_redux/models/app_state.dart';
-import 'package:projects/movies_redux/models/movie.dart';
+import 'package:projects/movies_redux/models/index.dart';
 import 'package:redux/redux.dart';
 
 class AppMiddleware {

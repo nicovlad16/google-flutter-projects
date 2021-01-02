@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:projects/movies_redux/models/app_state.dart';
-import 'package:redux/redux.dart';
+part of containers;
 
 class GenresContainer extends StatelessWidget {
   const GenresContainer({Key key, @required this.builder}) : super(key: key);

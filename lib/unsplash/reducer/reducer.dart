@@ -1,5 +1,5 @@
-import 'package:projects/unsplash/actions/get_images.dart';
-import 'package:projects/unsplash/models/app_state.dart';
+import 'package:projects/unsplash/actions/index.dart';
+import 'package:projects/unsplash/models/index.dart';
 import 'package:redux/redux.dart';
 
 Reducer<AppState> reducer = combineReducers(<Reducer<AppState>>[

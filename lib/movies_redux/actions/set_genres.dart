@@ -1,8 +1,5 @@
-library set_genres;
+part of actions;
 
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'set_genres.freezed.dart';
 
 @freezed
 abstract class SetGenres with _$SetGenres {
