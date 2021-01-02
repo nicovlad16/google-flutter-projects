@@ -14,25 +14,19 @@ class AppMiddleware {
 
   List<Middleware<AppState>> get middleware {
     return <Middleware<AppState>>[
-      _getImagesMiddleware,
+      TypedMiddleware<AppState, GetImagesStart>(_getImagesStart),
     ];
   }
 
-  Future<void> _getImagesMiddleware(Store<AppState> store, dynamic action, NextDispatcher next) async {
+  Future<void> _getImagesStart(Store<AppState> store, dynamic action, NextDispatcher next) async {
     next(action);
-
-    if (action is! GetImagesStart) {
-      return;
-    }
-
     try {
-      final GetImagesStart startAction = action as GetImagesStart;
       if (store.state.searchTerm == null) {
-        final List<UnsplashImage> images = await _unsplashApi.getImages(startAction.page);
+        final List<UnsplashImage> images = await _unsplashApi.getImages(action.page);
         final GetImagesSuccessful successful = GetImages.successful(images);
         store.dispatch(successful);
       } else {
-        final List<UnsplashImage> images = await _unsplashApi.searchImages(startAction.page, store.state.searchTerm);
+        final List<UnsplashImage> images = await _unsplashApi.searchImages(action.page, store.state.searchTerm);
         final GetImagesSuccessful successful = GetImages.successful(images);
         store.dispatch(successful);
       }

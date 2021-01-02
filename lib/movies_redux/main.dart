@@ -4,21 +4,24 @@ import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:projects/movies_redux/actions/get_movies.dart';
 import 'package:projects/movies_redux/data/movies_api.dart';
-import 'package:projects/movies_redux/middleware/app_middleware.dart';
+import 'package:projects/movies_redux/epics/app_epics.dart';
 import 'package:projects/movies_redux/models/app_state.dart';
 import 'package:projects/movies_redux/presentation/home_page.dart';
 import 'package:projects/movies_redux/reducer/reducer.dart';
 import 'package:redux/redux.dart';
+import 'package:redux_epics/redux_epics.dart';
 
 void main() {
   final Client client = Client();
   final MoviesApi api = MoviesApi(client: client);
-  final AppMiddleware appMiddleware = AppMiddleware(moviesApi: api);
+  final AppEpics appEpics = AppEpics(moviesApi: api);
   final AppState initialState = AppState();
   final Store<AppState> store = Store<AppState>(
     reducer,
     initialState: initialState,
-    middleware: appMiddleware.middleware,
+    middleware: <Middleware<AppState>>[
+      EpicMiddleware<AppState>(appEpics.epics),
+    ],
   );
 
   store.dispatch(const GetMovies.start(1));

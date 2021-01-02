@@ -4,22 +4,24 @@ import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:projects/unsplash/actions/get_images.dart';
 import 'package:projects/unsplash/data/unsplash_api.dart';
+import 'package:projects/unsplash/epics/app_epics.dart';
+import 'package:projects/unsplash/models/app_state.dart';
 import 'package:projects/unsplash/presentation/home_page.dart';
 import 'package:projects/unsplash/reducer/reducer.dart';
 import 'package:redux/redux.dart';
-
-import 'middleware/app_middleware.dart';
-import 'models/app_state.dart';
+import 'package:redux_epics/redux_epics.dart';
 
 void main() {
   final Client client = Client();
   final UnsplashApi api = UnsplashApi(client: client);
-  final AppMiddleware appMiddleware = AppMiddleware(unsplashApi: api);
+  final AppEpics appEpics = AppEpics(unsplashApi: api);
   final AppState initialState = AppState();
   final Store<AppState> store = Store<AppState>(
     reducer,
     initialState: initialState,
-    middleware: appMiddleware.middleware,
+    middleware: <Middleware<AppState>>[
+      EpicMiddleware<AppState>(appEpics.epics),
+    ],
   );
 
   store.dispatch(const GetImages.start(1));

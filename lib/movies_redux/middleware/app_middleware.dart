@@ -14,22 +14,16 @@ class AppMiddleware {
 
   List<Middleware<AppState>> get middleware {
     return <Middleware<AppState>>[
-      _getMoviesMiddleware,
+      TypedMiddleware<AppState, GetMoviesStart>(_getMoviesStart),
     ];
   }
 
-  Future<void> _getMoviesMiddleware(Store<AppState> store, dynamic action, NextDispatcher next) async {
+  Future<void> _getMoviesStart(Store<AppState> store, GetMoviesStart action, NextDispatcher next) async {
     next(action);
 
-    if (action is! GetMoviesStart) {
-      return;
-    }
-
     try {
-      final GetMoviesStart startAction = action as GetMoviesStart;
-
       final List<Movie> movies = await _moviesApi.getMovies(
-          startAction.page, store.state.quality, store.state.genres.asList(), store.state.orderBy);
+          action.page, store.state.quality, store.state.genres.asList(), store.state.orderBy);
 
       final GetMoviesSuccessful successful = GetMovies.successful(movies);
       store.dispatch(successful);
