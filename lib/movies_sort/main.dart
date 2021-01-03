@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'movie_details.dart';
 import 'movies.dart';
 
-typedef IntCallback = int Function(Movie movie, Movie other);
+typedef CompareCallback = int Function(Movie movie, Movie other);
 
 void main() {
   runApp(MyApp());
@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Movie> movies = <Movie>[];
   String initialSort;
 
-  Map<String, IntCallback> dropdownItems = <String, IntCallback>{
+  Map<String, CompareCallback> dropdownItems = <String, CompareCallback>{
     'title': compareTitle,
     'year': compareYear,
     'rating': compareRating,
@@ -77,9 +77,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void showMovieDetailsPage(Movie movie) {
-    Navigator.of(context).push(MaterialPageRoute<void>(builder: (BuildContext context) {
-      return MovieDetailsPage(movie);
-    }));
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          return MovieDetailsPage(movie);
+        },
+      ),
+    );
   }
 
   ListView get listView {
@@ -112,7 +116,11 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[const Text('Sort by:'), const SizedBox(width: 16), dropdownButton],
+            children: <Widget>[
+              const Text('Sort by:'),
+              const SizedBox(width: 16),
+              dropdownButton,
+            ],
           ),
           Expanded(
             child: listView,
