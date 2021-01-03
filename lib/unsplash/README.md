@@ -2,7 +2,7 @@
 
 A list of images is displayed.
 
-![Screenshot1](https://github.com/nicovlad16/google-flutter-projects/blob/master/screenshots/unsplash.png)
+![Screenshot1](https://github.com/nicovlad16/google-flutter-projects/master/screenshots/unsplash.png)
 
 ## Code
 
