@@ -222,8 +222,13 @@ class _MyHomePageState extends State<MyHomePage> {
             child: GridView.builder(
               itemCount: _gridSize * _gridSize,
               padding: const EdgeInsets.all(16.0),
+              physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: _gridSize, mainAxisSpacing: 8.0, crossAxisSpacing: 8.0, childAspectRatio: 1.0),
+                crossAxisCount: _gridSize,
+                mainAxisSpacing: 8.0,
+                crossAxisSpacing: 8.0,
+                childAspectRatio: 1.0,
+              ),
               itemBuilder: (BuildContext context, int index) {
                 return RaisedButton(
                   onPressed: endGame || !_isEmptyTile(index)
