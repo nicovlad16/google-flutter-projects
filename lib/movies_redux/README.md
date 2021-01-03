@@ -7,9 +7,9 @@ Details of each movie are also shown.
 - Order ascending or descending based on the day they were added.
 - Filter by genre.
 
-![Screenshot1](./screenshots/movies_redux_1.png)
-![Screenshot2](./screenshots/movies_redux_2.png)
-![Screenshot3](./screenshots/movies_redux_3.png)
+![Screenshot1](https://github.com/nicovlad16/google-flutter-projects/blob/master/screenshots/movies_redux_1.png)
+![Screenshot2](https://github.com/nicovlad16/google-flutter-projects/blob/master/screenshots/movies_redux_2.png)
+![Screenshot3](https://github.com/nicovlad16/google-flutter-projects/blob/master/screenshots/movies_redux_3.png)
 
 
 

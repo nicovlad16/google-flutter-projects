@@ -5,9 +5,9 @@ Details of each movie are also shown.
 
 Movies can be sorted based on their attributes (title, year, rating, runtime).
 
-![Screenshot1](./screenshots/movies_sort_1.png)
-![Screenshot2](./screenshots/movies_sort_2.png)
-![Screenshot3](./screenshots/movies_sort_3.png)
+![Screenshot1](https://github.com/nicovlad16/google-flutter-projects/blob/master/screenshots/movies_sort_1.png)
+![Screenshot2](https://github.com/nicovlad16/google-flutter-projects/blob/master/screenshots/movies_sort_2.png)
+![Screenshot3](https://github.com/nicovlad16/google-flutter-projects/blob/master/screenshots/movies_sort_3.png)
 
 
 ## Code
