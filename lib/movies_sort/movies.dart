@@ -16,12 +16,13 @@ Future<List<Movie>> getMovies() async {
     final Map<String, dynamic> item = movies[i];
 
     final Movie movie = Movie(
-        id: item['id'],
-        title: item['title'],
-        year: item['year'],
-        rating: item['rating'].toDouble(),
-        runtime: item['runtime'],
-        image: item['large_cover_image']);
+      id: item['id'],
+      title: item['title'],
+      year: item['year'],
+      rating: item['rating'].toDouble(),
+      runtime: item['runtime'],
+      image: item['large_cover_image'],
+    );
 
     movieList.add(movie);
   }
@@ -46,13 +47,14 @@ int compareRuntime(Movie movie, Movie other) {
 }
 
 class Movie {
-  Movie(
-      {@required this.id,
-      @required this.title,
-      @required this.year,
-      @required this.rating,
-      @required this.runtime,
-      @required this.image});
+  Movie({
+    @required this.id,
+    @required this.title,
+    @required this.year,
+    @required this.rating,
+    @required this.runtime,
+    @required this.image,
+  });
 
   final int id;
   final String title;
