@@ -39,48 +39,50 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[
-          Image.network(
-              'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=900&q=60'),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: TextFormField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                hintText: hintText,
-                errorText: error,
-                border: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.blue),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Image.network(
+                'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&auto=format&fit=crop&w=900&q=60'),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextFormField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  hintText: hintText,
+                  errorText: error,
+                  border: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue),
+                  ),
                 ),
+                onChanged: (String value) {
+                  setState(() {
+                    textInput = value;
+                  });
+                },
               ),
-              onChanged: (String value) {
+            ),
+            FlatButton(
+              child: const Text('CONVERT'),
+              color: Colors.grey[300],
+              onPressed: () {
                 setState(() {
-                  textInput = value;
+                  if (textInput == null || double.tryParse(textInput) == null) {
+                    error = 'please enter a valid number';
+                  } else {
+                    error = null;
+                    result = (4.5 * double.parse(textInput)).toStringAsFixed(2) + ' RON';
+                  }
                 });
               },
             ),
-          ),
-          FlatButton(
-            child: const Text('CONVERT'),
-            color: Colors.grey[300],
-            onPressed: () {
-              setState(() {
-                if (textInput == null || double.tryParse(textInput) == null) {
-                  error = 'please enter a valid number';
-                } else {
-                  error = null;
-                  result = (4.5 * double.parse(textInput)).toStringAsFixed(2) + ' RON';
-                }
-              });
-            },
-          ),
-          if (result != null)
-            Text(
-              '$result',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-        ],
+            if (result != null)
+              Text(
+                '$result',
+                style: Theme.of(context).textTheme.headline4,
+              ),
+          ],
+        ),
       ),
     );
   }
