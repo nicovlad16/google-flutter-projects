@@ -2,6 +2,7 @@
 
 A list of images is displayed.
 
+![Screenshot1](./screenshots/unsplash.png)
 
 ## Code
 
