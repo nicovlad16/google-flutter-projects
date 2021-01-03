@@ -80,9 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: <Widget>[
-            const Text(
-              'I\'m thinking of a number between 1 and 100.',
-            ),
+            const Text('I\'m thinking of a number between 1 and 100.'),
             const Text('It\'s your turn to guess my number!'),
             if (guess != null)
               Text(
