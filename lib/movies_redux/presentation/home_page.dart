@@ -6,10 +6,22 @@ import 'package:projects/movies_redux/containers/index.dart';
 import 'package:projects/movies_redux/models/index.dart';
 import 'package:redux/redux.dart';
 
+import 'movie_page.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key key, this.title}) : super(key: key);
 
   final String title;
+
+  void _showMovieDetailsPage(Movie movie, BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) {
+          return MovieDetailsPage(movie);
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +74,7 @@ class HomePage extends StatelessWidget {
                               'Fantasy',
                               'Comedy-Romance',
                               'Action-Comedy',
-                              'Superhero'
+                              'Superhero',
                             ].map((String genre) {
                               return ChoiceChip(
                                 label: Text(genre),
@@ -111,9 +123,14 @@ class HomePage extends StatelessWidget {
                             crossAxisCount: 3,
                           ),
                           itemBuilder: (BuildContext context, int index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Image.network(movies[index].image),
+                            return FlatButton(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Image.network(movies[index].image),
+                              ),
+                              onPressed: () {
+                                _showMovieDetailsPage(movies[index], context);
+                              },
                             );
                           },
                         ),
