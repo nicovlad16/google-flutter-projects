@@ -3,7 +3,7 @@
 A list of movies is displayed.
 Details of each movie are also shown.
 
-Movies can be sorted based on their quality (like 720p, 1080p, 2160p, 3D).
+Movies can be sorted based on their attributes (title, year, rating, runtime).
 
 ![Screenshot1](./screenshots/movies_sort_1.png)
 ![Screenshot2](./screenshots/movies_sort_2.png)
