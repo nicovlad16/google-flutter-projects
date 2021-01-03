@@ -4,7 +4,7 @@ List of words (phrases) in Romanian language, and their translations in other la
 
 When hovering over an item in the list, an audio is played.
 
-![Screenshot](https://github.com/nicovlad16/google-flutter-projects/blob/master/screenshots/basic_phrases.png)
+![Screenshot](../../screenshots/basic_phrases/basic_phrases.png)
 
 ## Code
 
