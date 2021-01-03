@@ -61,9 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: <Widget>[
-            const Text(
-              'Please input a number to see if it is square or cube.',
-            ),
+            const Text('Please input a number to see if it is square or cube.'),
             TextFormField(
               inputFormatters: <FilteringTextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
               keyboardType: TextInputType.number,
@@ -88,14 +86,15 @@ class _MyHomePageState extends State<MyHomePage> {
           } else {
             number = int.tryParse(textInput);
 
-            if (_isSquare(number) && _isCube(number))
+            if (_isSquare(number) && _isCube(number)) {
               result = 'Number $number is both SQUARE and CUBE.';
-            else if (_isSquare(number))
+            } else if (_isSquare(number)) {
               result = 'Number $number is SQUARE.';
-            else if (_isCube(number))
+            } else if (_isCube(number)) {
               result = 'Number $number is CUBE.';
-            else
+            } else {
               result = 'Number $number is neither SQUARE nor CUBE.';
+            }
           }
 
           _showMyDialog();
